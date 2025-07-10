@@ -4,7 +4,6 @@ Customer segmentation for an online retail dataset using RFM analysis and K-Mean
 
 # --- Phase 1: Data Acquisition and Initial Understanding ---
 
-print("--- Phase 1: Data Acquisition and Initial Understanding ---")
 
 # 1. Data Source Identification and Download
 # Download the dataset using KaggleHub
@@ -13,7 +12,6 @@ print("--- Phase 1: Data Acquisition and Initial Understanding ---")
 # 2. Simulate SQL Initial Exploration (using Pandas)
 # --- Phase 2: Data Cleaning and Preprocessing ---
 
-print("\n--- Phase 2: Data Cleaning and Preprocessing ---")
 
 # 1. Handle Missing Customer IDs
 # 2. Handle Negative Quantities (typically returns, exclude for sales analysis)
@@ -27,24 +25,45 @@ print("\n--- Phase 2: Data Cleaning and Preprocessing ---")
 
 # --- Phase 3: Exploratory Data Analysis (EDA) & Visualization ---
 
-print("\n--- Phase 3: Exploratory Data Analysis (EDA) & Visualization ---")
 
 # 1. Sales Trends Over Time
 # Aggregate total price by InvoiceDate (daily sum)
+### Overall Sales Trend
+The daily sales plot shows significant fluctuations over time...
+![Daily Total Sales Over Time](images/Daily Total Sales Over Time.png)
 
 # Sales by Day of Week
 # Reorder days for consistent plotting
-
+### Sales by Day of Week
+Sales are generally higher on Tuesdays and Thursdays...
+![Total Sales by Day of Week](images/Total Sales by Day of Week.png)
 
 # Sales by Hour of Day (extract hour from datetime)
+### Sales by Hour of Day
+Sales typically peak around midday (10 AM to 3 PM)...
+![Total Sales By Hour of Day](images/Total Sales By hour of Day.png)
 
 # 2. Top N Products by Sales and Quantity
+### Top Products
+Products like 'WHITE HANGING HEART T-LIGHT HOLDER'...
+![Top 10 Products](images/Top 10 Products.png)
+
 # 3. Sales by Country
 
+### Geographical Sales Distribution
+The United Kingdom is by far the dominant market...
+![Top 10 Countries by Sales](images/Top 10 Countries by Sales.png)
 
 # 4. Distribution of Quantity and Price
+### Distribution of Quantity and Price
+Both 'Quantity' and 'Price' distributions are highly skewed...
+![Distribution of Items - Quantity and Price](images/Distribution of Items.png)
 
 # 5. Average Order Value
+### Average Order Value
+The distribution of total order values per invoice also shows skewness...
+![Distribution of Total Order Value per Invoice](images/Distribution of Total Order Value per Invoice.png)
+
 # Calculate total price for each unique invoice
 
 # --- Phase 4: Machine Learning (Customer Segmentation) ---
@@ -62,15 +81,23 @@ print("\n--- Phase 3: Exploratory Data Analysis (EDA) & Visualization ---")
 # 2. Handle Skewness (Log Transformation)
 # Apply log1p (log(1+x)) to handle potential zero values gracefully
 # Plot histograms of transformed RFM features
+To handle skewness, RFM features were log-transformed...
+![Distribution of Log (RFM)](images/Distribution of log (RFM).png)
+
 # 3. Feature Scaling
 
 
 # 4. Determine Optimal Number of Clusters (Elbow Method)
+The elbow method suggested 4 optimal clusters...
+![Elbow Method for Optimal K](images/Elbow Method for optimal K.png)
+
 # Based on the elbow plot, k=4 seems to be a good choice where the curve starts to flatten.
 # 5. Apply K-Means Clustering
 # 6. Analyze Cluster Characteristics (using original RFM values for interpretability)
 # Sort clusters for easier comparison if needed (e.g., by Monetary value)
 # Visualizing cluster characteristics
+The final clusters show distinct RFM profiles, visualized here with box plots...
+![RFM Metrics by Cluster](images/RFM Metrics.png)
 
 # Adjusting Value limits for better visualization due to high monetary values for some clusters
 # Use log-transformed values for visualization if the original values are too skewed for clear plots
