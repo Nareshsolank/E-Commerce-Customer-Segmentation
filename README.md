@@ -97,38 +97,31 @@ Customer Segment Characterization (Based on RFM Analysis with 4 Clusters):
 Here, we'll map the actual cluster IDs from the 'cluster_analysis' DataFrame to descriptive names.
 Let's assume the sorting by Monetary value places the 'Champions' first.
 
--   **Cluster {0_id}: "Champions / Most Valuable Customers"**
-    -   **Recency (Mean):** ~{0_recency:.2f} days (Very Low) - Purchased very recently.
-    -   **Frequency (Mean):** ~{0_frequency:.0f} (Very High) - Extremely frequent buyers.
-    -   **Monetary (Mean):** ~£{0_monetary:.2f} (Very High) - Top revenue contributors.
+-   **Cluster 1: "Champions / Most Valuable Customers"**
+    -   **Recency (Mean):** ~13.86 days (Very Low) - Purchased very recently.
+    -   **Frequency (Mean):** ~14 (Very High) - Extremely frequent buyers.
+    -   **Monetary (Mean):** ~£7369.38 (Very High) - Top revenue contributors.
     -   **Description:** These are the most loyal, active, and highest-spending customers. They are critical to the business's success.
 
--   **Cluster {1_id}: "At-Risk Loyal Customers"**
-    -   **Recency (Mean):** ~{1_recency:.2f} days (Medium to High) - Noticeable gap since last purchase.
-    -   **Frequency (Mean):** ~{1_frequency:.0f} (High) - Previously very active.
-    -   **Monetary (Mean):** ~£{1_monetary:.2f} (High) - Significant past contributions.
+-   **Cluster 3: "At-Risk Loyal Customers"**
+      -   **Recency (Mean):** ~82.24 days (Medium to High) - Noticeable gap since last purchase.
+    -   **Frequency (Mean):** ~4 (High) - Previously very active.
+    -   **Monetary (Mean):** ~£1761.18 (High) - Significant past contributions.
     -   **Description:** Customers who were highly valuable but are showing signs of disengagement. They are at risk of churning if not re-engaged soon.
 
--   **Cluster {2_id}: "Promising / Active Customers"**
-    -   **Recency (Mean):** ~{2_recency:.2f} days (Low) - Relatively recent engagement.
-    -   **Frequency (Mean):** ~{2_frequency:.0f} (Moderate) - Consistent but not extremely frequent.
-    -   **Monetary (Mean):** ~£{2_monetary:.2f} (Moderate) - Contribute reasonably well.
+-   **Cluster 0: "Promising / Active Customers"**
+      -   **Recency (Mean):** ~23.44 days (Low) - Relatively recent engagement.
+    -   **Frequency (Mean):** ~2 (Moderate) - Consistent but not extremely frequent.
+    -   **Monetary (Mean):** ~£550.48 (Moderate) - Contribute reasonably well.
     -   **Description:** Active customers with potential to grow into champions with proper nurturing. They might be newer or buy steadily.
 
--   **Cluster {3_id}: "Churned / Lost Customers"**
-    -   **Recency (Mean):** ~{3_recency:.2f} days (Very High) - Long time since last purchase.
-    -   **Frequency (Mean):** ~{3_frequency:.0f} (Very Low) - Infrequent buyers.
-    -   **Monetary (Mean):** ~£{3_monetary:.2f} (Very Low) - Minimal past spend.
+-   **Cluster 2: "Churned / Lost Customers"**
+   -   **Recency (Mean):** ~189.01 days (Very High) - Long time since last purchase.
+    -   **Frequency (Mean):** ~1 (Very Low) - Infrequent buyers.
+    -   **Monetary (Mean):** ~£301.23 (Very Low) - Minimal past spend.
     -   **Description:** Largely inactive customers who have likely churned. They represent low return on re-engagement efforts.
-""".format(
-    # Dynamically map the cluster IDs and their mean values based on sorted 'cluster_analysis'
-    # Assuming cluster_analysis is sorted by Monetary value descending as done above
-    **{f"{i}_id": int(cluster_analysis.iloc[i]['Cluster']) for i in range(optimal_k)},
-    **{f"{i}_recency": cluster_analysis.iloc[i]['Recency'] for i in range(optimal_k)},
-    **{f"{i}_frequency": cluster_analysis.iloc[i]['Frequency'] for i in range(optimal_k)},
-    **{f"{i}_monetary": cluster_analysis.iloc[i]['Monetary'] for i in range(optimal_k)}
-)
 
+"""
 
 
 # 3. Actionable Business Recommendations
